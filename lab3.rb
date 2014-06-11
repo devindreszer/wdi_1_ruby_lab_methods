@@ -1,3 +1,5 @@
+require 'pry'
+
 STARTS = ['Bed', 'Brunn', 'Dun', 'Far', 'Glen', 'Tarn']
 MIDDLES = ['ding', 'fing', 'ly', 'ston']
 ENDS = ['borough', 'burg', 'ditch', 'hall', 'pool', 'ville', 'way', 'worth']
@@ -16,9 +18,11 @@ def town_names(number: 3, near: nil, short: false)
     name << ENDS.sample
     name << WATER_SUFFIX.sample if near == :water
 
-    names.push(name)
+    names << name
   end
   names
 end
 
 puts town_names(number: 10, near: :land, short: true)
+
+binding.pry
