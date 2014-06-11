@@ -13,5 +13,9 @@ class Fixnum
   end
 end
 
+# one line version (not as efficient; doesn't work with edge cases)
+def prime2?(number)
+  (2...number).all?{ |divisor| number % divisor == 0 }
+end
 
 puts 29.prime?()

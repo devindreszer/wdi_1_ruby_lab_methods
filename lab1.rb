@@ -15,3 +15,20 @@ class String
 end
 
 puts "Dark dock".toonify(:tom)
+
+
+ACCENTS = {
+  daffy: ['s', 'th']
+  elmer: ['r', 'w']
+  tom: ['ar', 'ah']
+}
+
+def toonify(accent, sentence)
+  if ACCENTS.key?(accent)
+    sentence.gsub(*ACCENTS[accent])
+  else
+    sentence
+  end
+end
+
+puts toonify(:tom, "Park your car at Harvard Yard")
