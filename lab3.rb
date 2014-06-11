@@ -1,20 +1,20 @@
-def town_names(number: 3, near: nil, short: false)
-  starts = ['Bed', 'Brunn', 'Dun', 'Far', 'Glen', 'Tarn']
-  middles = ['ding', 'fing', 'ly', 'ston']
-  ends = ['borough', 'burg', 'ditch', 'hall', 'pool', 'ville', 'way', 'worth']
-  water_suffix = ["-on-sea", " Falls"]
-  land_prefix = ["North ", "East ", "South ", "West ", ""]
+STARTS = ['Bed', 'Brunn', 'Dun', 'Far', 'Glen', 'Tarn']
+MIDDLES = ['ding', 'fing', 'ly', 'ston']
+ENDS = ['borough', 'burg', 'ditch', 'hall', 'pool', 'ville', 'way', 'worth']
+WATER_SUFFIX = ["-on-sea", " Falls"]
+LAND_PREFIX = ["North ", "East ", "South ", "West ", ""]
 
+def town_names(number: 3, near: nil, short: false)
   names = []
 
   number.times do
     name = ""
 
-    name << land_prefix.sample if near == :land
-    name << starts.sample
-    name << middles.sample if short == false && rand(4) == 1
-    name << ends.sample
-    name << water_suffix.sample if near == :water
+    name << LAND_PREFIX.sample if near == :land
+    name << STARTS.sample
+    name << MIDDLES.sample if short == false && rand(4) == 1
+    name << ENDS.sample
+    name << WATER_SUFFIX.sample if near == :water
 
     names.push(name)
   end
