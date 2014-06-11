@@ -10,17 +10,11 @@ def town_names(number: 3, near: nil, short: false)
   number.times do
     name = ""
 
-    if near == :land
-      name << land_prefix.sample
-    end
-
+    name << land_prefix.sample if near == :land
     name << starts.sample
     name << middles.sample if short == false && rand(4) == 1
     name << ends.sample
-
-    if near == :water
-      name << water_suffix.sample
-    end
+    name << water_suffix.sample if near == :water
 
     names.push(name)
   end
@@ -28,6 +22,3 @@ def town_names(number: 3, near: nil, short: false)
 end
 
 puts town_names(number: 10, near: :land, short: true)
-
-
-
