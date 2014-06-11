@@ -7,15 +7,6 @@ def town_names(number: 3, near: nil, short: false)
 
   names = []
 
-  if short == true
-    include_middles = false
-  elsif rand(4) == 0
-    include_middles = true
-  else
-    include_middles = false
-  end
-
-
   number.times do
     name = ""
 
@@ -24,11 +15,7 @@ def town_names(number: 3, near: nil, short: false)
     end
 
     name << starts.sample
-
-    if include_middles
-      name << middles.sample
-    end
-
+    name << middles.sample if short == false && rand(4) == 1
     name << ends.sample
 
     if near == :water
@@ -40,7 +27,7 @@ def town_names(number: 3, near: nil, short: false)
   names
 end
 
-puts town_names(number: 7, near: :land, short: true)
+puts town_names(number: 10, near: :land, short: true)
 
 
 
